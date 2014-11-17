@@ -1,0 +1,1796 @@
+<!DOCTYPE html><!--[if IE 8]>
+<html lang="en" class="ie ie8"><![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script type="text/javascript">(window.NREUM || (NREUM = {})).loader_config = {xpid: "UwcHUlNaGwAFXFFUAAQ="};
+    window.NREUM || (NREUM = {}), __nr_require = function (t, e, n) {
+        function r(n) {
+            if (!e[n]) {
+                var o = e[n] = {exports: {}};
+                t[n][0].call(o.exports, function (e) {
+                    var o = t[n][1][e];
+                    return r(o ? o : e)
+                }, o, o.exports)
+            }
+            return e[n].exports
+        }
+
+        if ("function" == typeof __nr_require)return __nr_require;
+        for (var o = 0; o < n.length; o++)r(n[o]);
+        return r
+    }({QJf3ax: [function (t, e) {
+        function n(t) {
+            function e(e, n, a) {
+                t && t(e, n, a), a || (a = {});
+                for (var c = s(e), u = c.length, f = i(a, o, r), d = 0; u > d; d++)c[d].apply(f, n);
+                return f
+            }
+
+            function a(t, e) {
+                u[t] = s(t).concat(e)
+            }
+
+            function s(t) {
+                return u[t] || []
+            }
+
+            function c() {
+                return n(e)
+            }
+
+            var u = {};
+            return{on: a, emit: e, create: c, listeners: s, _events: u}
+        }
+
+        function r() {
+            return{}
+        }
+
+        var o = "nr@context", i = t("gos");
+        e.exports = n()
+    }, {gos: "7eSDFh"}], ee: [function (t, e) {
+        e.exports = t("QJf3ax")
+    }, {}], 3: [function (t) {
+        function e(t, e, n, i, s) {
+            try {
+                c ? c -= 1 : r("err", [s || new UncaughtException(t, e, n)])
+            } catch (u) {
+                try {
+                    r("ierr", [u, (new Date).getTime(), !0])
+                } catch (f) {
+                }
+            }
+            return"function" == typeof a ? a.apply(this, o(arguments)) : !1
+        }
+
+        function UncaughtException(t, e, n) {
+            this.message = t || "Uncaught error with no additional information", this.sourceURL = e, this.line = n
+        }
+
+        function n(t) {
+            r("err", [t, (new Date).getTime()])
+        }
+
+        var r = t("handle"), o = t(4), i = t("ee"), a = window.onerror, s = !1, c = 0;
+        t("loader").features.err = !0, window.onerror = e, NREUM.noticeError = n;
+        try {
+            throw new Error
+        } catch (u) {
+            "stack"in u && (t(5), t(3), "addEventListener"in window && t(1), window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && t(2), s = !0)
+        }
+        i.on("fn-start", function () {
+            s && (c += 1)
+        }), i.on("fn-err", function (t, e, r) {
+            s && (this.thrown = !0, n(r))
+        }), i.on("fn-end", function () {
+            s && !this.thrown && c > 0 && (c -= 1)
+        }), i.on("internal-error", function (t) {
+            r("ierr", [t, (new Date).getTime(), !0])
+        })
+    }, {1: 4, 2: 7, 3: 5, 4: 18, 5: 6, ee: "QJf3ax", handle: "D5DuLP", loader: "G9z0Bl"}], 4: [function (t, e) {
+        function n(t) {
+            i.inPlace(t, ["addEventListener", "removeEventListener"], "-", r)
+        }
+
+        function r(t) {
+            return t[1]
+        }
+
+        var o = (t(1), t("ee").create()), i = t(2)(o), a = t("gos");
+        if (e.exports = o, n(window), "getPrototypeOf"in Object) {
+            for (var s = document; s && !s.hasOwnProperty("addEventListener");)s = Object.getPrototypeOf(s);
+            s && n(s);
+            for (var c = XMLHttpRequest.prototype; c && !c.hasOwnProperty("addEventListener");)c = Object.getPrototypeOf(c);
+            c && n(c)
+        } else XMLHttpRequest.prototype.hasOwnProperty("addEventListener") && n(XMLHttpRequest.prototype);
+        o.on("addEventListener-start", function (t) {
+            if (t[1]) {
+                var e = t[1];
+                "function" == typeof e ? this.wrapped = t[1] = a(e, "nr@wrapped", function () {
+                    return i(e, "fn-", null, e.name || "anonymous")
+                }) : "function" == typeof e.handleEvent && i.inPlace(e, ["handleEvent"], "fn-")
+            }
+        }), o.on("removeEventListener-start", function (t) {
+            var e = this.wrapped;
+            e && (t[1] = e)
+        })
+    }, {1: 18, 2: 19, ee: "QJf3ax", gos: "7eSDFh"}], 5: [function (t, e) {
+        var n = (t(2), t("ee").create()), r = t(1)(n);
+        e.exports = n, r.inPlace(window, ["requestAnimationFrame", "mozRequestAnimationFrame", "webkitRequestAnimationFrame", "msRequestAnimationFrame"], "raf-"), n.on("raf-start", function (t) {
+            t[0] = r(t[0], "fn-")
+        })
+    }, {1: 19, 2: 18, ee: "QJf3ax"}], 6: [function (t, e) {
+        function n(t, e, n) {
+            var r = t[0];
+            "string" == typeof r && (r = new Function(r)), t[0] = o(r, "fn-", null, n)
+        }
+
+        var r = (t(2), t("ee").create()), o = t(1)(r);
+        e.exports = r, o.inPlace(window, ["setTimeout", "setInterval", "setImmediate"], "setTimer-"), r.on("setTimer-start", n)
+    }, {1: 19, 2: 18, ee: "QJf3ax"}], 7: [function (t, e) {
+        function n() {
+            c.inPlace(this, d, "fn-")
+        }
+
+        function r(t, e) {
+            c.inPlace(e, ["onreadystatechange"], "fn-")
+        }
+
+        function o(t, e) {
+            return e
+        }
+
+        var i = t("ee").create(), a = t(1), s = t(2), c = s(i), u = s(a), f = window.XMLHttpRequest, d = ["onload", "onerror", "onabort", "onloadstart", "onloadend", "onprogress", "ontimeout"];
+        e.exports = i, window.XMLHttpRequest = function (t) {
+            var e = new f(t);
+            try {
+                i.emit("new-xhr", [], e), u.inPlace(e, ["addEventListener", "removeEventListener"], "-", function (t, e) {
+                    return e
+                }), e.addEventListener("readystatechange", n, !1)
+            } catch (r) {
+                try {
+                    i.emit("internal-error", [r])
+                } catch (o) {
+                }
+            }
+            return e
+        }, window.XMLHttpRequest.prototype = f.prototype, c.inPlace(XMLHttpRequest.prototype, ["open", "send"], "-xhr-", o), i.on("send-xhr-start", r), i.on("open-xhr-start", r)
+    }, {1: 4, 2: 19, ee: "QJf3ax"}], 8: [function (t) {
+        function e(t) {
+            if ("string" == typeof t && t.length)return t.length;
+            if ("object" != typeof t)return void 0;
+            if ("undefined" != typeof ArrayBuffer && t instanceof ArrayBuffer && t.byteLength)return t.byteLength;
+            if ("undefined" != typeof Blob && t instanceof Blob && t.size)return t.size;
+            if ("undefined" != typeof FormData && t instanceof FormData)return void 0;
+            try {
+                return JSON.stringify(t).length
+            } catch (e) {
+                return void 0
+            }
+        }
+
+        function n(t) {
+            var n = this.params, r = this.metrics;
+            if (!this.ended) {
+                this.ended = !0;
+                for (var i = 0; c > i; i++)t.removeEventListener(s[i], this.listener, !1);
+                if (!n.aborted) {
+                    if (r.duration = (new Date).getTime() - this.startTime, 4 === t.readyState) {
+                        n.status = t.status;
+                        var a = t.responseType, u = "arraybuffer" === a || "blob" === a || "json" === a ? t.response : t.responseText, f = e(u);
+                        if (f && (r.rxSize = f), this.sameOrigin) {
+                            var d = t.getResponseHeader("X-NewRelic-App-Data");
+                            d && (n.cat = d.split(", ").pop())
+                        }
+                    } else n.status = 0;
+                    r.cbTime = this.cbTime, o("xhr", [n, r, this.startTime])
+                }
+            }
+        }
+
+        function r(t, e) {
+            var n = i(e), r = t.params;
+            r.host = n.hostname + ":" + n.port, r.pathname = n.pathname, t.sameOrigin = n.sameOrigin
+        }
+
+        if (window.XMLHttpRequest && XMLHttpRequest.prototype && XMLHttpRequest.prototype.addEventListener && !/CriOS/.test(navigator.userAgent)) {
+            t("loader").features.xhr = !0;
+            var o = t("handle"), i = t(2), a = t("ee"), s = ["load", "error", "abort", "timeout"], c = s.length, u = t(1);
+            t(4), t(3), a.on("new-xhr", function () {
+                this.totalCbs = 0, this.called = 0, this.cbTime = 0, this.end = n, this.ended = !1, this.xhrGuids = {}
+            }), a.on("open-xhr-start", function (t) {
+                this.params = {method: t[0]}, r(this, t[1]), this.metrics = {}
+            }), a.on("open-xhr-end", function (t, e) {
+                "loader_config"in NREUM && "xpid"in NREUM.loader_config && this.sameOrigin && e.setRequestHeader("X-NewRelic-ID", NREUM.loader_config.xpid)
+            }), a.on("send-xhr-start", function (t, n) {
+                var r = this.metrics, o = t[0], i = this;
+                if (r && o) {
+                    var u = e(o);
+                    u && (r.txSize = u)
+                }
+                this.startTime = (new Date).getTime(), this.listener = function (t) {
+                    try {
+                        "abort" === t.type && (i.params.aborted = !0), ("load" !== t.type || i.called === i.totalCbs && (i.onloadCalled || "function" != typeof n.onload)) && i.end(n)
+                    } catch (e) {
+                        try {
+                            a.emit("internal-error", [e])
+                        } catch (r) {
+                        }
+                    }
+                };
+                for (var f = 0; c > f; f++)n.addEventListener(s[f], this.listener, !1)
+            }), a.on("xhr-cb-time", function (t, e, n) {
+                this.cbTime += t, e ? this.onloadCalled = !0 : this.called += 1, this.called !== this.totalCbs || !this.onloadCalled && "function" == typeof n.onload || this.end(n)
+            }), a.on("xhr-load-added", function (t, e) {
+                var n = "" + u(t) + !!e;
+                this.xhrGuids && !this.xhrGuids[n] && (this.xhrGuids[n] = !0, this.totalCbs += 1)
+            }), a.on("xhr-load-removed", function (t, e) {
+                var n = "" + u(t) + !!e;
+                this.xhrGuids && this.xhrGuids[n] && (delete this.xhrGuids[n], this.totalCbs -= 1)
+            }), a.on("addEventListener-end", function (t, e) {
+                e instanceof XMLHttpRequest && "load" === t[0] && a.emit("xhr-load-added", [t[1], t[2]], e)
+            }), a.on("removeEventListener-end", function (t, e) {
+                e instanceof XMLHttpRequest && "load" === t[0] && a.emit("xhr-load-removed", [t[1], t[2]], e)
+            }), a.on("fn-start", function (t, e, n) {
+                e instanceof XMLHttpRequest && ("onload" === n && (this.onload = !0), ("load" === (t[0] && t[0].type) || this.onload) && (this.xhrCbStart = (new Date).getTime()))
+            }), a.on("fn-end", function (t, e) {
+                this.xhrCbStart && a.emit("xhr-cb-time", [(new Date).getTime() - this.xhrCbStart, this.onload, e], e)
+            })
+        }
+    }, {1: "XL7HBI", 2: 9, 3: 7, 4: 4, ee: "QJf3ax", handle: "D5DuLP", loader: "G9z0Bl"}], 9: [function (t, e) {
+        e.exports = function (t) {
+            var e = document.createElement("a"), n = window.location, r = {};
+            e.href = t, r.port = e.port;
+            var o = e.href.split("://");
+            return!r.port && o[1] && (r.port = o[1].split("/")[0].split(":")[1]), r.port && "0" !== r.port || (r.port = "https" === o[0] ? "443" : "80"), r.hostname = e.hostname || n.hostname, r.pathname = e.pathname, "/" !== r.pathname.charAt(0) && (r.pathname = "/" + r.pathname), r.sameOrigin = !e.hostname || e.hostname === document.domain && e.port === n.port && e.protocol === n.protocol, r
+        }
+    }, {}], gos: [function (t, e) {
+        e.exports = t("7eSDFh")
+    }, {}], "7eSDFh": [function (t, e) {
+        function n(t, e, n) {
+            if (r.call(t, e))return t[e];
+            var o = n();
+            if (Object.defineProperty && Object.keys)try {
+                return Object.defineProperty(t, e, {value: o, writable: !0, enumerable: !1}), o
+            } catch (i) {
+            }
+            return t[e] = o, o
+        }
+
+        var r = Object.prototype.hasOwnProperty;
+        e.exports = n
+    }, {}], D5DuLP: [function (t, e) {
+        function n(t, e, n) {
+            return r.listeners(t).length ? r.emit(t, e, n) : (o[t] || (o[t] = []), void o[t].push(e))
+        }
+
+        var r = t("ee").create(), o = {};
+        e.exports = n, n.ee = r, r.q = o
+    }, {ee: "QJf3ax"}], handle: [function (t, e) {
+        e.exports = t("D5DuLP")
+    }, {}], XL7HBI: [function (t, e) {
+        function n(t) {
+            var e = typeof t;
+            return!t || "object" !== e && "function" !== e ? -1 : t === window ? 0 : i(t, o, function () {
+                return r++
+            })
+        }
+
+        var r = 1, o = "nr@id", i = t("gos");
+        e.exports = n
+    }, {gos: "7eSDFh"}], id: [function (t, e) {
+        e.exports = t("XL7HBI")
+    }, {}], loader: [function (t, e) {
+        e.exports = t("G9z0Bl")
+    }, {}], G9z0Bl: [function (t, e) {
+        function n() {
+            var t = p.info = NREUM.info;
+            if (t && t.agent && t.licenseKey && t.applicationID && c && c.body) {
+                p.proto = "https" === d.split(":")[0] || t.sslForHttp ? "https://" : "http://", a("mark", ["onload", i()]);
+                var e = c.createElement("script");
+                e.src = p.proto + t.agent, c.body.appendChild(e)
+            }
+        }
+
+        function r() {
+            "complete" === c.readyState && o()
+        }
+
+        function o() {
+            a("mark", ["domContent", i()])
+        }
+
+        function i() {
+            return(new Date).getTime()
+        }
+
+        var a = t("handle"), s = window, c = s.document, u = "addEventListener", f = "attachEvent", d = ("" + location).split("?")[0], p = e.exports = {offset: i(), origin: d, features: {}};
+        c[u] ? (c[u]("DOMContentLoaded", o, !1), s[u]("load", n, !1)) : (c[f]("onreadystatechange", r), s[f]("onload", n)), a("mark", ["firstbyte", i()])
+    }, {handle: "D5DuLP"}], 18: [function (t, e) {
+        function n(t, e, n) {
+            e || (e = 0), "undefined" == typeof n && (n = t ? t.length : 0);
+            for (var r = -1, o = n - e || 0, i = Array(0 > o ? 0 : o); ++r < o;)i[r] = t[e + r];
+            return i
+        }
+
+        e.exports = n
+    }, {}], 19: [function (t, e) {
+        function n(t) {
+            return!(t && "function" == typeof t && t.apply && !t[i])
+        }
+
+        var r = t("ee"), o = t(1), i = "nr@wrapper", a = Object.prototype.hasOwnProperty;
+        e.exports = function (t) {
+            function e(t, e, r, a) {
+                function nrWrapper() {
+                    var n, i, s, u;
+                    try {
+                        i = this, n = o(arguments), s = r && r(n, i) || {}
+                    } catch (d) {
+                        f([d, "", [n, i, a], s])
+                    }
+                    c(e + "start", [n, i, a], s);
+                    try {
+                        return u = t.apply(i, n)
+                    } catch (p) {
+                        throw c(e + "err", [n, i, p], s), p
+                    } finally {
+                        c(e + "end", [n, i, u], s)
+                    }
+                }
+
+                return n(t) ? t : (e || (e = ""), nrWrapper[i] = !0, u(t, nrWrapper), nrWrapper)
+            }
+
+            function s(t, r, o, i) {
+                o || (o = "");
+                var a, s, c, u = "-" === o.charAt(0);
+                for (c = 0; c < r.length; c++)s = r[c], a = t[s], n(a) || (t[s] = e(a, u ? s + o : o, i, s, t))
+            }
+
+            function c(e, n, r) {
+                try {
+                    t.emit(e, n, r)
+                } catch (o) {
+                    f([o, e, n, r])
+                }
+            }
+
+            function u(t, e) {
+                if (Object.defineProperty && Object.keys)try {
+                    var n = Object.keys(t);
+                    return n.forEach(function (n) {
+                        Object.defineProperty(e, n, {get: function () {
+                            return t[n]
+                        }, set: function (e) {
+                            return t[n] = e, e
+                        }})
+                    }), e
+                } catch (r) {
+                    f([r])
+                }
+                for (var o in t)a.call(t, o) && (e[o] = t[o]);
+                return e
+            }
+
+            function f(e) {
+                try {
+                    t.emit("internal-error", e)
+                } catch (n) {
+                }
+            }
+
+            return t || (t = r), e.inPlace = s, e.flag = i, e
+        }
+    }, {1: 18, ee: "QJf3ax"}]}, {}, ["G9z0Bl", 3, 8]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en"/>
+    <meta name="title" content="Time Out Manchester - Events, Attractions &amp; What&#039;s on in Manchester"/>
+    <meta name="description"
+          content="Find out what&#039;s on in Manchester with Time Out. Your guide to the best food and drink, events, activities and attractions in Manchester"/>
+    <link rel="icon" type="image/png" href="/favicon.ico"/>
+    <meta name="robots" content="NOODP, NOYDIR"/>
+    <meta property="og:title"
+          content="Time Out Manchester - Events, Attractions &amp;amp; What&amp;#039;s on in Manchester">
+    <meta property="fb:app_id" content="219005678265589">
+    <meta property="og:url" content="http://www.timeout.com/manchester">
+    <meta property="og:site_name" content="Time Out Manchester">
+    <meta property="og:description"
+          content="Find out what&amp;#039;s on in Manchester with Time Out. Your guide to the best food and drink, events, activities and attractions in Manchester">
+    <meta property="og:type" content="article">
+    <meta property="article:publisher" content="https://www.facebook.com/TimeOutManc">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your ultimate guide to Manchester">
+    <meta name="twitter:description"
+          content="Discover Manchester&#039;s best things to do, restaurants, theatre and nightlife">
+    <title>Time Out Manchester - Events, Attractions &amp; What&#039;s on in Manchester</title>
+    <link href="//d1zr4guc6ts897.cloudfront.net/dist/69d075444fe0d9cfbebe4225400fe1c2cbe898b8/css/timeout.css"
+          rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --><!--[if lte IE 9]>
+    <script
+        src="//d1zr4guc6ts897.cloudfront.net/dist/69d075444fe0d9cfbebe4225400fe1c2cbe898b8/js/lib/matchmedia.js"></script>
+    <![endif]--><!--[if IE 9]>
+    <link href="//d1zr4guc6ts897.cloudfront.net/dist/69d075444fe0d9cfbebe4225400fe1c2cbe898b8/css/crossbrowser/ie9.css"
+          rel="stylesheet"/><![endif]--><!--[if IE 8]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link href="//d1zr4guc6ts897.cloudfront.net/dist/69d075444fe0d9cfbebe4225400fe1c2cbe898b8/css/crossbrowser/ie8.css"
+          rel="stylesheet"/><![endif]-->
+    <meta
+        data-gptparameters='{"host":"Time_Out_Manchester","network_code":"5185","zone":"things-to-do","ad_pubs":{"page":"page","itemid":"page-413","audience":"default"},"taggings":"{\"subject\":[\"things-to-do\"],\"location\":[\"greater-manchester\"]}"}'/>
+    <meta data-module="omniture"
+          data-account="timeoutukmanchester,timeoutdev,timeoutworldwide"
+          data-site-name="Manchester"
+          data-content='{&quot;pageName&quot;:&quot;Your ultimate guide to Manchester : Hub Page&quot;,&quot;prop3&quot;:&quot;your ultimate guide to manchester&quot;,&quot;prop4&quot;:&quot;content-page-413&quot;,&quot;prop5&quot;:&quot;hub&quot;,&quot;hier1&quot;:&quot;manchester&quot;,&quot;prop38&quot;:&quot;no image&quot;}'
+          data-track-manually="0">
+</head>
+<body class="    
+    hub-page
+  en_GB nojs" data-country="uk">
+<script>document.body.className = document.body.className.replace('nojs', '')</script>
+<div id="ad-skin-1048774692" class="ad  ad-skin" data-ad='{"type":"skin"}'>
+    <noscript><a
+        href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-skin;page=page;itemid=page-413;audience=default;tile=6;sz=1x1;ord=516106055;subject=things-to-do;location=greater-manchester;?"><img
+        src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-skin;page=page;itemid=page-413;audience=default;tile=6;sz=1x1;ord=516106055;subject=things-to-do;location=greater-manchester;?"/></a>
+    </noscript>
+</div>
+<section class="sr-only"><a href="#content" aria-hidden="true">Go to the content</a><a href="#site-footer"
+                                                                                       aria-hidden="true">Go to the
+    footer</a></section>
+<header id="header" role="banner">
+    <div class="sticky-placeholder">
+        <div class="sticky fixed">
+            <div class="masthead" id="masthead">
+                <div class="container">
+                    <div class="branding"><a class="timeout-logo" href="/manchester" title="Timeout Manchester">Timeout
+                        Manchester</a><a class="branding__site_name" title="Timeout Manchester" href="/manchester">Manchester</a>
+                    </div>
+                    <div class="mobile-menu">
+                        <div class="nav-top-item nav-utils__item">
+                            <nav class="drawer-menu drawer-menu__dir-left" data-module="drawer" data-uid="38841032">
+                                <input type="checkbox" id="drawer-menu__toggle_38841032" class="drawer-menu__toggle"
+                                       data-uid="38841032">
+
+                                <div class="drawer-menu__content"><label class="drawer-menu__close_button icon_close"
+                                                                         for="drawer-menu__toggle_38841032"><span>Close</span></label>
+
+                                    <div class="drawer-menu__include">
+                                        <nav id="mobile-nav" class="navmenu" role="navigation">
+                                            <ul class="nav">
+                                                <li><a href="/manchester/things-to-do" title="Things to do">
+                                                    Things to do
+                                                </a></li>
+                                                <li><a href="/manchester/restaurants" title="Restaurants">
+                                                    Restaurants
+                                                </a></li>
+                                                <li><a href="/manchester/bars-pubs" title="Bars &amp; pubs">
+                                                    Bars &amp; pubs
+                                                </a></li>
+                                                <li><a href="/manchester/film" title="Film">
+                                                    Film
+                                                </a></li>
+                                                <li><a href="/manchester/music-nightlife" title="Music &amp; Nightlife">
+                                                    Music &amp; Nightlife
+                                                </a></li>
+                                                <li><a href="/manchester/blog" title="Blog">
+                                                    Blog
+                                                </a></li>
+                                                <li><a href="//www.timeout.com/find-your-time-out/"
+                                                       class="mobile-nav__item--city-link">Change city</a></li>
+                                                <li><a class="mobile-nav__item--social facebook"
+                                                       href="https://www.facebook.com/TimeOutManc" target="_blank">Facebook</a>
+                                                </li>
+                                                <li><a class="mobile-nav__item--social twitter"
+                                                       href="https://twitter.com/TimeOutManc"
+                                                       target="_blank">Twitter</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <label class="drawer-menu__label mobile-menu__drawer icon_burger"
+                                       for="drawer-menu__toggle_38841032"></label></nav>
+                        </div>
+                    </div>
+                    <div class="nav-utils">
+                        <div class="nav-top-item nav-utils__item"><a href="/manchester/search"
+                                                                     class="search-trigger"><span><i>Search</i></span></a>
+                        </div>
+                        <div class="nav-top-item nav-utils__item social-links"><span class="social-links__title">Follow us</span><span
+                            class="social-links__link-wrapper"><a class="facebook"
+                                                                  href="https://www.facebook.com/TimeOutManc"
+                                                                  title="Facebook" target="_blank">Facebook</a><a
+                            class="twitter" href="https://twitter.com/TimeOutManc" title="Twitter" target="_blank">Twitter</a></span>
+                        </div>
+                        <div class="nav-top-item nav-utils__item city-link"><a
+                            href="//www.timeout.com/find-your-time-out/"><span><i>Change city</i></span></a></div>
+                        <div class="nav-top-item nav-utils__item">
+                            <nav class="drawer-menu drawer-menu__dir-right" data-module="drawer" data-uid="679526153">
+                                <input type="checkbox" id="drawer-menu__toggle_679526153" class="drawer-menu__toggle"
+                                       data-uid="679526153">
+
+                                <div class="drawer-menu__content"><label class="drawer-menu__close_button icon_close"
+                                                                         for="drawer-menu__toggle_679526153"><span>Close</span></label>
+
+                                    <div class="drawer-menu__include">
+                                        <div
+                                            class="user__panel"
+                                            data-module="user"
+                                            data-params='{
+        "gigya_url" : "http://cdn.gigya.com/JS/socialize.js?apikey=3_tQKJmyO5u50bQaNljqWymBh6uezUx-yvPK6kDyblgAUXK7V6Y-_aPghiLfHEUmNr",
+        "token_url": "/manchester/en_GB/user/token",
+        "gigya_conf"  : {
+            "lang": "en"
+        },
+        "screens":{
+            "screenSet":   "gigya-screens",
+            "containerID": "gigya-container",
+            "startScreen": "login-screen"
+        },
+        "welcome_url" : "/manchester/en_GB/user/email/welcome"
+    }'><h3 class="gigya-screens__title">Your Time Out</h3>
+                                            <nav class='gigya-screens__nav'><a href='#'
+                                                                               data-module='gigya'
+                                                                               data-action='logOut'
+                                                                               id="user-logout"
+                                                                               class="gigya-screens__nav_logout">
+                                                Sign out
+                                            </a><a class="gigya-screens__nav_account"
+                                                   href="/manchester/en_GB/user/myAccount">
+                                                My Account
+                                            </a><a href='#'
+                                                   class="gigya-screens__nav_item gigya-active-button"
+                                                   data-module='gigya'
+                                                   data-action='switchscreen'
+                                                   data-params='login-screen'>
+                                                Sign in
+                                            </a><a href='#'
+                                                   class="gigya-screens__nav_item"
+                                                   data-module='gigya'
+                                                   data-action='switchscreen'
+                                                   data-params='create_account_screen'>
+                                                Create account
+                                            </a></nav>
+                                            <div id="gigya-container"></div>
+                                            <div class="gigya-screen-set" id="gigya-screens"
+                                                 data-on-pending-registration-screen="confirm_account_screen">
+                                                <div class="gigya-screen" id="login-screen"><h3>Sign in</h3>
+
+                                                    <div class="gigya-screens_social_login_prompt"><p
+                                                        class='gigya-screens__info'>With your social account:</p>
+
+                                                        <div id="gigya-social-login_1804334205"
+                                                             class="gigya-social-login"
+                                                             style="overflow:hidden;height:40px;min-height:40px;">
+                                                            <param name="width" value="250">
+                                                            <param name="height" value="35">
+                                                            <param name="enabledProviders"
+                                                                   value="Facebook,Googleplus,Twitter">
+                                                            <param name="showWhatsThis" value="false">
+                                                            <param name="showTermsLink" value="false">
+                                                            <param name="hideGigyaLink" value="true">
+                                                        </div>
+                                                        <div class="gigya-error-msg error-msg alert alert-danger"
+                                                             data-bound-to="gigya-social-login_1804334205"></div>
+                                                    </div>
+                                                    <p class="gigya-screens__info">Or with your email:</p>
+
+                                                    <form class="gigya-login-form" method="POST" role='form'>
+                                                        <div
+                                                            class="gigya-composite-control gigya-composite-control-textbox">
+                                                            <label for="loginID">Email:</label><input
+                                                            class="gigya-input-text" tabindex="3" name="loginID"
+                                                            type="text" value=""><span class="gigya-error-msg"
+                                                                                       data-bound-to="loginID"></span>
+                                                        </div>
+                                                        <div
+                                                            class="gigya-composite-control gigya-composite-control-password">
+                                                            <label for="password">Password:</label><input
+                                                            class="gigya-input-password" tabindex="3" name="password"
+                                                            type="password"><span class="gigya-error-msg"
+                                                                                  data-bound-to="password"></span></div>
+                                                        <div class="gigya-error-msg error-msg alert alert-danger"
+                                                             data-bound-to="gigya-login-form"></div>
+                                                        <a href="/manchester/en_GB/user/forgotPassword"
+                                                           class="gigya-forgotten_password">Forgotten your password?</a>
+                                                        <button class="gigya-input-submit" tabindex="3" type="submit">
+                                                            Sign in
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div class="gigya-screen" id="create_account_screen"><h3
+                                                    class='gigya-screens__subtitle'> You can create a Time Out account
+                                                    in two ways...</h3>
+
+                                                    <div class="gigya-screens_social_login_prompt"><p
+                                                        class="gigya-screens__info">With a few clicks using your
+                                                        favourite social network</p>
+
+                                                        <div id="gigya-social-login_990711984"
+                                                             class="gigya-social-login"
+                                                             style="overflow:hidden;height:40px;min-height:40px;">
+                                                            <param name="width" value="250">
+                                                            <param name="height" value="35">
+                                                            <param name="enabledProviders"
+                                                                   value="Facebook,Googleplus,Twitter">
+                                                            <param name="showWhatsThis" value="false">
+                                                            <param name="showTermsLink" value="false">
+                                                            <param name="hideGigyaLink" value="true">
+                                                        </div>
+                                                        <div class="gigya-error-msg error-msg alert alert-danger"
+                                                             data-bound-to="gigya-social-login_990711984"></div>
+                                                    </div>
+                                                    <p class='gigya-screens__info'>Or by entering your details below</p>
+
+                                                    <form
+                                                        id="create_account_form"
+                                                        class="gigya-register-form"
+                                                        method="POST"
+                                                        role='form'><label for="email">Email</label><input type="email"
+                                                                                                           name="email"
+                                                                                                           required/><span
+                                                        class="gigya-error-msg" data-bound-to="email"></span><label
+                                                        for="profile.firstName">First Name</label><input type="text"
+                                                                                                         name="profile.firstName"/><span
+                                                        class="gigya-error-msg"
+                                                        data-bound-to="profile.firstName"></span><label
+                                                        for="profile.lastName">Last Name</label><input type="text"
+                                                                                                       name="profile.lastName"/><span
+                                                        class="gigya-error-msg" data-bound-to="profile.lastName"></span><label
+                                                        for="password"> Create password</label><input type="password"
+                                                                                                      name="password"/><span
+                                                        class="gigya-error-msg" data-bound-to="password"></span><label
+                                                        for="passwordRetype">Repeat new password</label><input
+                                                        type="password" name="passwordRetype"/><span
+                                                        class="gigya-error-msg"
+                                                        data-bound-to="passwordRetype"></span><input type="hidden"
+                                                                                                     name="data.hasPassword"
+                                                                                                     value="true"/><input
+                                                        class="hidden" type="text" name="data.displayName"/>
+                                                        <fieldset class='gigya-screens__terms'>
+                                                            <div class="checkbox"><input type="checkbox"
+                                                                                         name="data.terms"
+                                                                                         id="data.terms"><label
+                                                                class='gigya-screens__terms_label' for="data.terms">I
+                                                                accept Time Out's <a href='/manchester/privacy-policy'
+                                                                                     target='_blank'>terms of use</a>,
+                                                                including opt-in to newsletters.</label><span
+                                                                class="gigya-error-msg error-msg"
+                                                                data-bound-to="data.terms"></span></div>
+                                                        </fieldset>
+                                                        <span class="gigya-error-msg"
+                                                              data-bound-to="create_account_form"></span>
+                                                        <button type="submit" class="gigya-input-submit">Create
+                                                            account
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div class="gigya-screen" id="confirm_account_screen"><h3
+                                                    class='gigya-screens__subtitle'>
+                                                    Welcome,
+        <span
+            data-module="gigyascreens"
+            data-action="confirm_account_screen"
+            data-params="profile.firstName"></span>!
+                                                </h3>
+
+                                                    <div class="gigya-profile-photo"></div>
+                                                    <p class='gigya-screens__info'>
+                                                        You have successfully connected your <span
+                                                        class="gigya-login-provider"></span> account to Time Out. You
+                                                        may sign in with this account in future.
+                                                    </p>
+
+                                                    <p class='gigya-screens__info'>
+                                                        Please confirm your account details
+                                                    </p>
+
+                                                    <form id="confirm_account_form" class="gigya-profile-form"
+                                                          method="POST">
+                                                        <div class='form-group'><label for="email">Email</label><input
+                                                            type="email" name="email" class='form-control'
+                                                            required/><span class="gigya-error-msg error-msg"
+                                                                            data-bound-to="email"></span><span
+                                                            class="gigya-error-msg error-msg"
+                                                            data-bound-to="loginID"></span></div>
+                                                        <div class='form-group'><label for="email">First
+                                                            Name </label><input type="text" name="profile.firstName"
+                                                                                class='form-control'/><span
+                                                            class="gigya-error-msg error-msg"
+                                                            data-bound-to="profile.firstName"></span></div>
+                                                        <div class='form-group'><label class="" for="email">Last
+                                                            Name</label><input type="text" name="profile.lastName"
+                                                                               class='form-control'/><span
+                                                            class="gigya-error-msg error-msg"
+                                                            data-bound-to="profile.lastName"></span></div>
+                                                        <fieldset class='gigya-screens__terms'>
+                                                            <div class="checkbox"><input type="checkbox"
+                                                                                         name="data.terms"
+                                                                                         id="data.terms"><label
+                                                                class='gigya-screens__terms_label' for="data.terms">I
+                                                                accept Time Out's <a href='/manchester/privacy-policy'
+                                                                                     target='_blank'>terms of use</a>,
+                                                                including opt-in to newsletters.</label><span
+                                                                class="gigya-error-msg error-msg"
+                                                                data-bound-to="data.terms"></span></div>
+                                                        </fieldset>
+                                                        <span class="gigya-error-msg error-msg"
+                                                              data-bound-to="confirm_account_form"></span><input
+                                                        class="hidden" type="text" name="data.displayName"/>
+                                                        <button type="submit" class="gigya-input-submit">Sign up
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="drawer-menu__label " for="drawer-menu__toggle_679526153"><span
+                                    class="user__image"
+                                    id="data-html"
+                                    data-module="user_element"
+                                    data-params='{"content":"<img class=\"user__thumbnail\" src=\"%thumbnailURL%\" alt=\"%firstName% %lastName%\" \/>"}'></span><span
+                                    class="user__drawer"
+                                    id="data-exists"
+                                    data-module="user_element"
+                                    data-params='{"content":"<i>Hi, %firstName% <\/i>"}'><span class="drawer-label"><i>Your
+                                    Time Out</i></span></span>​ </label></nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav id="primary-nav" class="navbar" role="navigation">
+                <div class="container">
+                    <ul class="nav nav--hidden">
+                        <li class="nav-top-item"><a href="/manchester/things-to-do" title="Things to do">
+                            Things to do
+                        </a></li>
+                        <li class="nav-top-item"><a href="/manchester/restaurants" title="Restaurants">
+                            Restaurants
+                        </a></li>
+                        <li class="nav-top-item"><a href="/manchester/bars-pubs" title="Bars &amp; pubs">
+                            Bars &amp; pubs
+                        </a></li>
+                        <li class="nav-top-item"><a href="/manchester/film" title="Film">
+                            Film
+                        </a></li>
+                        <li class="nav-top-item"><a href="/manchester/music-nightlife" title="Music &amp; Nightlife">
+                            Music &amp; Nightlife
+                        </a></li>
+                        <li class="nav-top-item"><a href="/manchester/blog" title="Blog">
+                            Blog
+                        </a></li>
+                        <li class="nav-top-item more-submenu has-submenu hidden"><a href="#"> More </a>
+                            <ul class="submenu"></ul>
+                        </li>
+                        <li class="nav-top-item search-trigger"><a href="/manchester/search"> Search</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div id="ad-header-946101187" class="ad  ad-header" data-ad='{"type":"header"}'>
+        <noscript><a
+            href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-header;page=page;itemid=page-413;audience=default;tile=1;sz=728x90,900x250,940x250,970x250,970x415,970x90;ord=1294590758;subject=things-to-do;location=greater-manchester;?"><img
+            src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-header;page=page;itemid=page-413;audience=default;tile=1;sz=728x90,900x250,940x250,970x250,970x415,970x90;ord=1294590758;subject=things-to-do;location=greater-manchester;?"/></a>
+        </noscript>
+    </div>
+    <div id="ad-mobile-banner-1449885911" class="ad  ad-mobile-banner" data-ad='{"type":"mobilebanner"}'>
+        <noscript><a
+            href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-mobile-banner;page=page;itemid=page-413;audience=default;tile=4;sz=320,50;ord=1208027300;subject=things-to-do;location=greater-manchester;?"><img
+            src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-mobile-banner;page=page;itemid=page-413;audience=default;tile=4;sz=320,50;ord=1208027300;subject=things-to-do;location=greater-manchester;?"/></a>
+        </noscript>
+    </div>
+</header>
+<main id="content" role="main" class="container">
+<header class="page_intro"><h1>Your ultimate guide to Manchester</h1>
+
+    <h2 class="page_intro__short_desc">Discover Manchester&#039;s best things to do, restaurants, theatre and
+        nightlife</h2></header>
+<div class="zone zone_A_with_ads">
+    <div class="clearfix"></div>
+    <div class="tiles">
+        <div class="tile tile_hero category_10  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/blog/18-great-things-to-do-in-manchester-this-week"
+                                          title="18 great things to do in Manchester this week"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101724721/{width}/{height}/image.jpg"
+                         data-title="18 great things to do in Manchester this week"
+                         data-alt="18 great things to do in Manchester this week"></div>
+                    <noscript><img src="http://media.timeout.com/images/101724721/image.jpg"
+                                   alt="18 great things to do in Manchester this week"
+                                   title="18 great things to do in Manchester this week"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Blog
+					</span></div>
+                        <h3 class="tile__title">
+                            18 great things to do in Manchester this week
+                        </h3>
+
+                        <p class="tile__description">
+                            Take a leaf out of John Shuttleworth&#039;s book and look ahead to the coming week of the
+                            very best things to do in Manchester
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/blog/18-great-things-to-do-in-manchester-this-week"
+                   title="18 great things to do in Manchester this week">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium tile_ad">
+            <div class="tile__content">
+                <div id="ad-mpu-884259105" class="ad  module" data-ad='{"type":"mpu"}'>
+                    <noscript><a
+                        href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-mpu;page=page;itemid=page-413;audience=default;tile=2;sz=300x250;ord=1368668051;subject=things-to-do;location=greater-manchester;?"><img
+                        src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-mpu;page=page;itemid=page-413;audience=default;tile=2;sz=300x250;ord=1368668051;subject=things-to-do;location=greater-manchester;?"/></a>
+                    </noscript>
+                </div>
+                <div id="ad-promo-1908809747" class="ad  module ad-promo" data-ad='{"type":"promotile1"}'>
+                    <noscript><a
+                        href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-promo;page=page;itemid=page-413;audience=default;tile=7;sz=300x250;ord=943417084;subject=things-to-do;location=greater-manchester;?"><img
+                        src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-promo;page=page;itemid=page-413;audience=default;tile=7;sz=300x250;ord=943417084;subject=things-to-do;location=greater-manchester;?"/></a>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="zone zone_B"><h2 class="zone_title">On the blog</h2>
+
+    <div class="clearfix"></div>
+    <div class="tiles">
+        <div class="tile tile_small category_10  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/blog/four-great-club-nights-to-check-out-this-week"
+                                          title="Four great club nights to check out this week"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101706031/{width}/{height}/image.jpg"
+                         data-title="Four great club nights to check out this week"
+                         data-alt="Four great club nights to check out this week"></div>
+                    <noscript><img src="http://media.timeout.com/images/101706031/image.jpg"
+                                   alt="Four great club nights to check out this week"
+                                   title="Four great club nights to check out this week"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Blog
+					</span></div>
+                        <h3 class="tile__title">
+                            Four great club nights to check out this week
+                        </h3>
+
+                        <p class="tile__description">
+                            We told you that last weekend was a big one for clubbing in Manchester, but boy, this
+                            weekend is even bigger
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/blog/four-great-club-nights-to-check-out-this-week"
+                   title="Four great club nights to check out this week">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_small category_10  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/blog/time-out-meets-akram-khan-as-his-exhibition-from-one-side-to-the-other-opens-at-the-lowry"
+                                          title="Time Out meets Akram Khan"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101712543/{width}/{height}/image.jpg"
+                         data-title="Time Out meets Akram Khan"
+                         data-alt="Time Out meets Akram Khan"></div>
+                    <noscript><img src="http://media.timeout.com/images/101712543/image.jpg"
+                                   alt="Time Out meets Akram Khan" title="Time Out meets Akram Khan"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Blog
+					</span></div>
+                        <h3 class="tile__title">
+                            Time Out meets Akram Khan
+                        </h3>
+
+                        <p class="tile__description">
+                            We talk to the dancer and choreographer about his new exhibition at The Lowry
+                        </p></div>
+                </div>
+                <a class="tile__read_more"
+                   href="/manchester/blog/time-out-meets-akram-khan-as-his-exhibition-from-one-side-to-the-other-opens-at-the-lowry"
+                   title="Time Out meets Akram Khan">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_small category_10  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/blog/elizabeth-gaskell-a-woman-for-our-time"
+                                          title="Elizabeth Gaskell: a woman for our time"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101695031/{width}/{height}/image.jpg"
+                         data-title="Elizabeth Gaskell: a woman for our time"
+                         data-alt="Elizabeth Gaskell: a woman for our time"></div>
+                    <noscript><img src="http://media.timeout.com/images/101695031/image.jpg"
+                                   alt="Elizabeth Gaskell: a woman for our time"
+                                   title="Elizabeth Gaskell: a woman for our time"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Blog
+					</span></div>
+                        <h3 class="tile__title">
+                            Elizabeth Gaskell: a woman for our time
+                        </h3>
+
+                        <p class="tile__description">
+                            Find out why Elizabeth Gaskell was very much a modern woman
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/blog/elizabeth-gaskell-a-woman-for-our-time"
+                   title="Elizabeth Gaskell: a woman for our time">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_small category_10  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/blog/the-best-comedy-in-manchester-in-november"
+                                          title="The best comedy in Manchester in November"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101781617/{width}/{height}/image.jpg"
+                         data-title="The best comedy in Manchester in November"
+                         data-alt="The best comedy in Manchester in November"></div>
+                    <noscript><img src="http://media.timeout.com/images/101781617/image.jpg"
+                                   alt="The best comedy in Manchester in November"
+                                   title="The best comedy in Manchester in November"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Blog
+					</span></div>
+                        <h3 class="tile__title">
+                            The best comedy in Manchester in November
+                        </h3>
+
+                        <p class="tile__description">
+                            Fancy a laugh? We&#039;ve got it sorted
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/blog/the-best-comedy-in-manchester-in-november"
+                   title="The best comedy in Manchester in November">
+                    Read more
+                </a></div>
+        </div>
+    </div>
+</div>
+<div class="zone zone_A_with_ads"><h2 class="zone_title">Recommended events</h2>
+
+    <div class="clearfix"></div>
+    <div class="tiles">
+        <div class="tile tile_hero category_1  ">
+            <div class="tile__content"><a class="tile__anchor_link" href="/manchester/shopping/christmas-markets"
+                                          title="Christmas Markets"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101748311/{width}/{height}/image.jpg"
+                         data-title="Christmas Markets"
+                         data-alt="Christmas Markets"></div>
+                    <noscript><img src="http://media.timeout.com/images/101748311/image.jpg" alt="Christmas Markets"
+                                   title="Christmas Markets"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Shopping and style
+					</span></div>
+                        <h3 class="tile__title">
+                            Christmas Markets
+                        </h3>
+
+                        <p class="tile__description">
+                            This year you can expect to see a lot more of the Christmas Markets as the sheds of delight
+                            return bigger and more crammed than ever before
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/shopping/christmas-markets" title="Christmas Markets">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium tile_ad">
+            <div class="tile__content">
+                <div id="ad-bottom-mpu-902508134" class="ad  module" data-ad='{"type":"bottommpu"}'>
+                    <noscript><a
+                        href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-bottom-mpu;page=page;itemid=page-413;audience=default;tile=3;sz=300x250,300x600;ord=28920097;subject=things-to-do;location=greater-manchester;?"><img
+                        src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-bottom-mpu;page=page;itemid=page-413;audience=default;tile=3;sz=300x250,300x600;ord=28920097;subject=things-to-do;location=greater-manchester;?"/></a>
+                    </noscript>
+                </div>
+                <div id="ad-promo-67827932" class="ad  module ad-promo" data-ad='{"type":"promotile1"}'>
+                    <noscript><a
+                        href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-promo;page=page;itemid=page-413;audience=default;tile=7;sz=300x250;ord=672492777;subject=things-to-do;location=greater-manchester;?"><img
+                        src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-promo;page=page;itemid=page-413;audience=default;tile=7;sz=300x250;ord=672492777;subject=things-to-do;location=greater-manchester;?"/></a>
+                    </noscript>
+                </div>
+            </div>
+        </div>
+        <div class="tile tile_small category_5  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/music-festivals/the-whisky-sessions"
+                                          title="The Whisky Sessions"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101774169/{width}/{height}/image.jpg"
+                         data-title="The Whisky Sessions"
+                         data-alt="The Whisky Sessions"></div>
+                    <noscript><img src="http://media.timeout.com/images/101774169/image.jpg" alt="The Whisky Sessions"
+                                   title="The Whisky Sessions"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Music
+					</span></div>
+                        <h3 class="tile__title">
+                            The Whisky Sessions
+                        </h3>
+
+                        <p class="tile__description">
+                            It&#039;s a great line-up for this two day winter festival with Gomez, I Am Kloot and lots
+                            of whisky
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/music-festivals/the-whisky-sessions"
+                   title="The Whisky Sessions">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_small category_3  ">
+            <div class="tile__content"><a class="tile__anchor_link" href="/manchester/art/immortal-love-from-shanghai"
+                                          title="Immortal Love from Shanghai"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101744553/{width}/{height}/image.jpg"
+                         data-title="Immortal Love from Shanghai"
+                         data-alt="Immortal Love from Shanghai"></div>
+                    <noscript><img src="http://media.timeout.com/images/101744553/image.jpg"
+                                   alt="Immortal Love from Shanghai" title="Immortal Love from Shanghai"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Art
+					</span></div>
+                        <h3 class="tile__title">
+                            Immortal Love from Shanghai
+                        </h3>
+
+                        <p class="tile__description">
+                            Exploring traditional Chinese skills such as paper cutting, watercolour painting and stone
+                            carving
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/art/immortal-love-from-shanghai"
+                   title="Immortal Love from Shanghai">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_small category_4  ">
+            <div class="tile__content"><a class="tile__anchor_link" href="/manchester/theatre/cat-on-a-hot-tin-roof"
+                                          title="Cat On A Hot Tin Roof"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101717435/{width}/{height}/image.jpg"
+                         data-title="Cat On A Hot Tin Roof"
+                         data-alt="Cat On A Hot Tin Roof"></div>
+                    <noscript><img src="http://media.timeout.com/images/101717435/image.jpg" alt="Cat On A Hot Tin Roof"
+                                   title="Cat On A Hot Tin Roof"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Theatre
+					</span></div>
+                        <h3 class="tile__title">
+                            Cat On A Hot Tin Roof
+                        </h3>
+
+                        <p class="tile__description">
+                            Get over some dodgy accents and there&#039;s a lot to like in this version of Tennessee
+                            Williams’ classic
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/theatre/cat-on-a-hot-tin-roof"
+                   title="Cat On A Hot Tin Roof">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_small category_3  ">
+            <div class="tile__content"><a class="tile__anchor_link" href="/manchester/art/swags-and-tails"
+                                          title="Swags and Tails"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101750069/{width}/{height}/image.jpg"
+                         data-title="Swags and Tails"
+                         data-alt="Swags and Tails"></div>
+                    <noscript><img src="http://media.timeout.com/images/101750069/image.jpg" alt="Swags and Tails"
+                                   title="Swags and Tails"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Art
+					</span></div>
+                        <h3 class="tile__title">
+                            Swags and Tails
+                        </h3>
+
+                        <p class="tile__description">
+                            Kashif Nadim Chaudry&#039;s disturbingly attractive work combining traditional crafts with
+                            the skulls of dead things
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/art/swags-and-tails" title="Swags and Tails">
+                    Read more
+                </a></div>
+        </div>
+    </div>
+</div>
+<div class="zone zone_A"><h2 class="zone_title">Where to eat and drink in Manchester</h2>
+
+    <div class="clearfix"></div>
+    <div class="tiles">
+        <div class="tile tile_large category_2  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/restaurants/the-best-coffee-shops-and-cafes-in-manchester"
+                                          title="The best coffee shops and cafés in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101723385/{width}/{height}/image.jpg"
+                         data-title="The best coffee shops and cafés in Manchester"
+                         data-alt="The best coffee shops and cafés in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101723385/image.jpg"
+                                   alt="The best coffee shops and cafés in Manchester"
+                                   title="The best coffee shops and cafés in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Restaurants
+					</span></div>
+                        <h3 class="tile__title">
+                            The best coffee shops and cafés in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Coffee remains hot but tea&#039;s very cool these days. Here&#039;s where to get your hit of
+                            both
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/restaurants/the-best-coffee-shops-and-cafes-in-manchester"
+                   title="The best coffee shops and cafés in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_large category_2  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/restaurants/manchesters-best-burgers"
+                                          title="Manchester&#039;s best burgers"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101706247/{width}/{height}/image.jpg"
+                         data-title="Manchester&#039;s best burgers"
+                         data-alt="Manchester&#039;s best burgers"></div>
+                    <noscript><img src="http://media.timeout.com/images/101706247/image.jpg"
+                                   alt="Manchester&#039;s best burgers" title="Manchester&#039;s best burgers"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Restaurants
+					</span></div>
+                        <h3 class="tile__title">
+                            Manchester&#039;s best burgers
+                        </h3>
+
+                        <p class="tile__description">
+                            Partial to a patty? Head to these and get your burger fix
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/restaurants/manchesters-best-burgers"
+                   title="Manchester&#039;s best burgers">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_2  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/bars-pubs/the-best-pubs-in-manchester"
+                                          title="The best pubs in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101695105/{width}/{height}/image.jpg"
+                         data-title="The best pubs in Manchester"
+                         data-alt="The best pubs in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101695105/image.jpg"
+                                   alt="The best pubs in Manchester" title="The best pubs in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Bars and pubs
+					</span></div>
+                        <h3 class="tile__title">
+                            The best pubs in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            From lovely locals to great gastros, make a beeline for these brilliant boozers
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/bars-pubs/the-best-pubs-in-manchester"
+                   title="The best pubs in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_2 tile--has_bottom_rail ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/restaurants/the-best-restaurants-in-manchester"
+                                          title="The best restaurants in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101695093/{width}/{height}/image.jpg"
+                         data-title="The best restaurants in Manchester"
+                         data-alt="The best restaurants in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101695093/image.jpg"
+                                   alt="The best restaurants in Manchester" title="The best restaurants in Manchester"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Restaurants
+					</span></div>
+                        <h3 class="tile__title">
+                            The best restaurants in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Whatever tickles your culinary fancy, there are plenty of very good restaurants to get stuck
+                            into
+                        </p></div>
+                </div>
+                <div class="comment_count--callout tile__bottom_rail js-comment_count">
+                    1
+                </div>
+                <a class="tile__read_more" href="/manchester/restaurants/the-best-restaurants-in-manchester"
+                   title="The best restaurants in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_2 tile--has_bottom_rail ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/bars/the-best-cocktail-bars-in-manchester"
+                                          title="The best cocktail bars in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101691051/{width}/{height}/image.jpg"
+                         data-title="The best cocktail bars in Manchester"
+                         data-alt="The best cocktail bars in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101691051/image.jpg"
+                                   alt="The best cocktail bars in Manchester"
+                                   title="The best cocktail bars in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Bars and pubs
+					</span></div>
+                        <h3 class="tile__title">
+                            The best cocktail bars in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            If creative concoctions are your thing, take a peek here and partake in a tipple or two
+                        </p></div>
+                </div>
+                <div class="comment_count--callout tile__bottom_rail js-comment_count">
+                    1
+                </div>
+                <a class="tile__read_more" href="/manchester/bars/the-best-cocktail-bars-in-manchester"
+                   title="The best cocktail bars in Manchester">
+                    Read more
+                </a></div>
+        </div>
+    </div>
+</div>
+<div class="zone zone_A"><h2 class="zone_title">Enjoy some Manchester culture</h2>
+
+    <div class="clearfix"></div>
+    <div class="tiles">
+        <div class="tile tile_large category_6  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/things-to-do/the-best-museums-in-manchester"
+                                          title="The best museums in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101693537/{width}/{height}/image.jpg"
+                         data-title="The best museums in Manchester"
+                         data-alt="The best museums in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101693537/image.jpg"
+                                   alt="The best museums in Manchester" title="The best museums in Manchester"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Things to Do
+					</span></div>
+                        <h3 class="tile__title">
+                            The best museums in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Delve deep and marvel at Manchester&#039;s vibrant cultural institutions
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/things-to-do/the-best-museums-in-manchester"
+                   title="The best museums in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_large category_6  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/things-to-do/the-best-free-things-to-do-in-manchester"
+                                          title="The best free things to do in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101691121/{width}/{height}/image.jpg"
+                         data-title="The best free things to do in Manchester"
+                         data-alt="The best free things to do in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101691121/image.jpg"
+                                   alt="The best free things to do in Manchester"
+                                   title="The best free things to do in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Things to Do
+					</span></div>
+                        <h3 class="tile__title">
+                            The best free things to do in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Explore these and have your fill of fun for a lot less lolly
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/things-to-do/the-best-free-things-to-do-in-manchester"
+                   title="The best free things to do in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_6  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/things-to-do/the-best-art-galleries-in-manchester"
+                                          title="The best art galleries in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101691215/{width}/{height}/image.jpg"
+                         data-title="The best art galleries in Manchester"
+                         data-alt="The best art galleries in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101691215/image.jpg"
+                                   alt="The best art galleries in Manchester"
+                                   title="The best art galleries in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Things to Do
+					</span></div>
+                        <h3 class="tile__title">
+                            The best art galleries in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            From the best of yesteryear to the mercilessly modern, Manchester has it all
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/things-to-do/the-best-art-galleries-in-manchester"
+                   title="The best art galleries in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_6  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/things-to-do/top-ten-manchester-attractions"
+                                          title="Top ten Manchester attractions"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101691127/{width}/{height}/image.jpg"
+                         data-title="Top ten Manchester attractions"
+                         data-alt="Top ten Manchester attractions"></div>
+                    <noscript><img src="http://media.timeout.com/images/101691127/image.jpg"
+                                   alt="Top ten Manchester attractions" title="Top ten Manchester attractions"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Things to Do
+					</span></div>
+                        <h3 class="tile__title">
+                            Top ten Manchester attractions
+                        </h3>
+
+                        <p class="tile__description">
+                            Check this out for our ten favourite places to visit in Manchester
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/things-to-do/top-ten-manchester-attractions"
+                   title="Top ten Manchester attractions">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_4  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/things-to-do/the-best-theatres-in-manchester"
+                                          title="The best theatres in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101693417/{width}/{height}/image.jpg"
+                         data-title="The best theatres in Manchester"
+                         data-alt="The best theatres in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101693417/image.jpg"
+                                   alt="The best theatres in Manchester" title="The best theatres in Manchester"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Theatre
+					</span></div>
+                        <h3 class="tile__title">
+                            The best theatres in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Find a stage to suit in the city with our pick of Manchester&#039;s best theatres
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/things-to-do/the-best-theatres-in-manchester"
+                   title="The best theatres in Manchester">
+                    Read more
+                </a></div>
+        </div>
+    </div>
+</div>
+<div class="zone zone_C"><h2 class="zone_title">More things to do in Manchester</h2>
+
+    <div class="clearfix"></div>
+    <div class="tiles">
+        <div class="tile tile_medium category_6  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/things-to-do/manchester-events-calendar"
+                                          title="Manchester events calendar"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101697901/{width}/{height}/image.jpg"
+                         data-title="Manchester events calendar"
+                         data-alt="Manchester events calendar"></div>
+                    <noscript><img src="http://media.timeout.com/images/101697901/image.jpg"
+                                   alt="Manchester events calendar" title="Manchester events calendar"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Things to Do
+					</span></div>
+                        <h3 class="tile__title">
+                            Manchester events calendar
+                        </h3>
+
+                        <p class="tile__description">
+                            Diaries at the ready: check out the biggest events all-year-round
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/things-to-do/manchester-events-calendar"
+                   title="Manchester events calendar">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_2  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/bars-pubs/the-best-craft-beer-bars-in-manchester"
+                                          title="The best craft beer bars in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101691383/{width}/{height}/image.jpg"
+                         data-title="The best craft beer bars in Manchester"
+                         data-alt="The best craft beer bars in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101691383/image.jpg"
+                                   alt="The best craft beer bars in Manchester"
+                                   title="The best craft beer bars in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Bars and pubs
+					</span></div>
+                        <h3 class="tile__title">
+                            The best craft beer bars in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            If craft&#039;s your creed, head to these and worship at the altar of ale
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/bars-pubs/the-best-craft-beer-bars-in-manchester"
+                   title="The best craft beer bars in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_2  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/restaurants/the-best-cheap-eats-in-manchester"
+                                          title="The best cheap eats in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101695279/{width}/{height}/image.jpg"
+                         data-title="The best cheap eats in Manchester"
+                         data-alt="The best cheap eats in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101695279/image.jpg"
+                                   alt="The best cheap eats in Manchester" title="The best cheap eats in Manchester"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Restaurants
+					</span></div>
+                        <h3 class="tile__title">
+                            The best cheap eats in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Please your pocket by bagging a culinary bargain at these great spots
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/restaurants/the-best-cheap-eats-in-manchester"
+                   title="The best cheap eats in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_5  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/clubs/the-best-clubs-in-manchester"
+                                          title="The best clubs in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101694895/{width}/{height}/image.jpg"
+                         data-title="The best clubs in Manchester"
+                         data-alt="The best clubs in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101694895/image.jpg"
+                                   alt="The best clubs in Manchester" title="The best clubs in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Nightlife
+					</span></div>
+                        <h3 class="tile__title">
+                            The best clubs in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            If there&#039;s one thing Manchester does well, it&#039;s clubbing
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/clubs/the-best-clubs-in-manchester"
+                   title="The best clubs in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_5  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/music-nightlife/the-best-comedy-clubs-in-manchester"
+                                          title="The best comedy clubs in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101697575/{width}/{height}/image.jpg"
+                         data-title="The best comedy clubs in Manchester"
+                         data-alt="The best comedy clubs in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101697575/image.jpg"
+                                   alt="The best comedy clubs in Manchester"
+                                   title="The best comedy clubs in Manchester"/></noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Nightlife
+					</span></div>
+                        <h3 class="tile__title">
+                            The best comedy clubs in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Aching to be amused? Check these out, and have those sides split
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/music-nightlife/the-best-comedy-clubs-in-manchester"
+                   title="The best comedy clubs in Manchester">
+                    Read more
+                </a></div>
+        </div>
+        <div class="tile tile_medium category_10  ">
+            <div class="tile__content"><a class="tile__anchor_link"
+                                          href="/manchester/travel/the-best-hotels-in-manchester"
+                                          title="The best hotels in Manchester"></a>
+
+                <div class="tile__image_wrapper">
+                    <div class="delayed-image-load"
+                         data-class="tile__image"
+                         data-src="http://media.timeout.com/images/101692141/{width}/{height}/image.jpg"
+                         data-title="The best hotels in Manchester"
+                         data-alt="The best hotels in Manchester"></div>
+                    <noscript><img src="http://media.timeout.com/images/101692141/image.jpg"
+                                   alt="The best hotels in Manchester" title="The best hotels in Manchester"/>
+                    </noscript>
+                </div>
+                <div class="tile__body">
+                    <div class="tile__text">
+                        <div class="tile__info "><span class="tile__info_tag tile__category">
+						Travel
+					</span></div>
+                        <h3 class="tile__title">
+                            The best hotels in Manchester
+                        </h3>
+
+                        <p class="tile__description">
+                            Looking for somewhere to rest your head? Here&#039;s where to hit the hay
+                        </p></div>
+                </div>
+                <a class="tile__read_more" href="/manchester/travel/the-best-hotels-in-manchester"
+                   title="The best hotels in Manchester">
+                    Read more
+                </a></div>
+        </div>
+    </div>
+</div>
+</main>
+<footer class="site-footer">
+    <nav role="navigation" aria-label="Bottom navigation" id="footer-nav" class="site-footer__nav">
+        <div class="container"><a href="javascript:scrollTo(0,0)" class="site-footer__top-link">Top</a>
+
+            <div class="row"><!-- footer columns as defined in config -->
+                <div class="footer-tab"><input type="checkbox" id="footer-tab__toggle_0" class="footer-tab__toggle"><h4>
+                    <label for="footer-tab__toggle_0"><a href="http://www.timeout.com/about" title="About us"
+                                                         target="_self">About us</a></label></h4>
+                    <ul>
+                        <li><a href="http://www.timeout.com/about/time-out-group/work-for-time-out"
+                               title="Work for Time Out" target="_self">Work for Time Out</a></li>
+                        <li><a href="http://www.timeout.com/manchester/privacy-policy" title="Privacy policy"
+                               target="_self">Privacy policy</a></li>
+                        <li><a href="http://www.timeout.com/manchester/terms-conditions" title="Website terms of use"
+                               target="_self">Website terms of use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-tab"><input type="checkbox" id="footer-tab__toggle_1" class="footer-tab__toggle"><h4>
+                    <label for="footer-tab__toggle_1"><a href="http://www.timeout.com/manchester/contact-us"
+                                                         title="Contact us" target="_self">Contact us</a></label></h4>
+                    <ul>
+                        <li><a href="http://www.timeout.com/about/commercial-opportunities/uk" title="Advertising"
+                               target="_self">Advertising</a></li>
+                    </ul>
+                </div>
+                <div class="footer-tab"><input type="checkbox" id="footer-tab__toggle_2" class="footer-tab__toggle"><h4>
+                    <label for="footer-tab__toggle_2">Time Out products</label></h4>
+                    <ul>
+                        <li><a href="http://shop.timeout.com/" title="Time Out Shop" target="_self">Time Out Shop</a>
+                        </li>
+                        <li><a href="http://shop.timeout.com/" title="Time Out Guides" target="_self">Time Out
+                            Guides</a></li>
+                        <li><a href="http://www.timeout.com/" title="Time Out worldwide" target="_self">Time Out
+                            worldwide</a></li>
+                        <li><a href="http://www.timeout.com/london" title="Time Out London" target="_self">Time Out
+                            London</a></li>
+                    </ul>
+                </div>
+                <div class="footer-tab social-links social-links--footer"><h4>Follow us</h4><span
+                    class="social-links__link-wrapper"><a class="facebook" href="https://www.facebook.com/TimeOutManc"
+                                                          title="Facebook" target="_blank">Facebook</a><a
+                    class="twitter" href="https://twitter.com/TimeOutManc" title="Twitter"
+                    target="_blank">Twitter</a></span></div>
+            </div>
+        </div>
+    </nav>
+    <div class="site-footer__utilities">
+        <div class="container"><a class="timeout-logo" href="/manchester" title="Timeout Manchester">Timeout
+            Manchester</a><a class="site-map" href="http://www.timeout.com/manchester/sitemap">Site map</a></div>
+    </div>
+</footer>
+<script src="//d1zr4guc6ts897.cloudfront.net/dist/69d075444fe0d9cfbebe4225400fe1c2cbe898b8/js/main.js" async
+        data-main="//d1zr4guc6ts897.cloudfront.net/dist/69d075444fe0d9cfbebe4225400fe1c2cbe898b8/js/main.js"></script>
+<script type="text/javascript">
+    (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.btstatic.com/tag.js#site=5leRLIi";
+        s.parentNode.insertBefore(tagjs, s);
+    }());
+</script>
+<noscript>
+    <iframe src="//s.thebrighttag.com/iframe?c=5leRLIi" width="1" height="1" frameborder="0" scrolling="no"
+            marginheight="0" marginwidth="0"></iframe>
+</noscript>
+<div id="ad-interstitial-oop-2122733346" class="ad " data-ad='{"type":"oop"}'>
+    <noscript><a
+        href="http://ad.doubleclick.net/5185/jump/Time_Out_Manchester/things-to-do;type=ad-interstitial-oop;page=page;itemid=page-413;audience=default;tile=1;sz=300x250;ord=1701431344;subject=things-to-do;location=greater-manchester;?"><img
+        src="http://ad.doubleclick.net/5185/ad/Time_Out_Manchester/things-to-do;type=ad-interstitial-oop;page=page;itemid=page-413;audience=default;tile=1;sz=300x250;ord=1701431344;subject=things-to-do;location=greater-manchester;?"/></a>
+    </noscript>
+</div>
+<noscript id="omnitureNoscript"><img
+    src="http://metrics.timeout.com/b/ss/timeoutukmanchester,timeoutdev,timeoutworldwide/1/H.23.8--NS/0?pageName=TO+%3A+No+Script"
+    height="1" width="1"/></noscript>
+<script type="text/javascript">window.NREUM || (NREUM = {});
+NREUM.info = {"beacon": "beacon-4.newrelic.com", "licenseKey": "078547f172", "applicationID": "3580675", "transactionName": "Y1MDNktRXkBQWkANCVoZIAFNWV9dHklVAwNrXw8GXEg=", "queueTime": 0, "applicationTime": 677, "ttGuid": "", "agentToken": "", "atts": "TxQAQANLTU4=", "errorBeacon": "bam.nr-data.net", "agent": "js-agent.newrelic.com\/nr-476.min.js"}</script>
+</body>
+</html>
